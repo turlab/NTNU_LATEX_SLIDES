@@ -1,5 +1,6 @@
-Put this folder with .sty-files in 
+This guide is currently only valid for WINDOWS, but will most likely be similar for MAC OS/LINUX
 
-C:\Program Files (x86)\MiKTeX 2.9\tex\latex (WINDOWS)
+1) Put this folder with .sty-files in 
+"C:\Program Files (x86)\MiKTeX 2.9\tex\latex" or similar (easy google exercise)
 
-or similar (easy google exercise)
+2) Open MikTeX 2.9 Settings/Options -> General tab -> Click Refresh FNDB
