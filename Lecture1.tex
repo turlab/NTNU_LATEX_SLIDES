@@ -1,0 +1,269 @@
+%& -shell-escape
+\RequirePackage{etex}
+\documentclass[]{beamer}
+
+\mode<presentation>
+{
+%   \usetheme[blue,noshadow]{Trondheim}
+%   \usetheme[blue,minimal]{Trondheim}
+  \usetheme[blue,compress,numbers,nonav,noshadow]{Trondheim}
+%   \usetheme[sand,compress,numbers,nonav,innovation]{Trondheim}
+  % Some examples for the different options for beamerTrondheim
+
+   %\usecolortheme{ntnuold}
+  % try this if you encounter problems with the new ntnublue theme
+
+  % \usefonttheme{professionalfonts}
+  % Use only if using a font matching the conditions (see beamer docs)
+
+  \usefonttheme[onlymath]{serif}
+  % \useoutertheme{infolines}
+  % or whatever
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+\usepackage{ulem}
+\usepackage{pdfsync}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{etex}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{arrows,positioning,patterns,calc,shapes}
+\usetikzlibrary{decorations.shapes,decorations.pathreplacing,decorations.markings}
+
+\usepackage{bm}
+% you only need this when using TikZ graphics
+
+
+%\usepackage{multimedia}
+% \usepackage{movie15}
+% you probably want to comment this out if not using multimedia elements
+\usepackage{multirow}
+
+%\usepackage[unicode]{hyperref}
+%\usepackage[unicode]{hyperref}
+\hypersetup{unicode}
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{amsmath}
+ %\usepackage{arev}
+% The non-standard packages arev and bera define fonts which look nicely for
+% projection, you might want to try them instead of Times/Helvetica/Courier.
+% Use the
+\usepackage{pstricks}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+\newgray{darkergray}{0.3}
+\definecolor{Mygray}{gray}{0.75}
+
+
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+
+
+
+%New command shortcuts
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}}
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Rmn}{\mathbb{R}^{m \times n}}
+\newcommand{\Lp}{\mathcal{L}_p}
+\newcommand{\Li}[1]{\mathcal{L}_{#1}}
+\newcommand{\xd}{\dot{x}}
+\newcommand{\Dset}{\mathbb{D}}
+\newcommand{\Ri}[1]{\mathbb{R}^{#1}}
+
+\title[Lecture 1: Introduction] %(optional, use only with long paper titles)
+{TK8103 Advanced Nonlinear Control}
+
+%\author{Lecture 1}
+\institute{}
+
+ \subtitle
+ {Lecture 1: Introduction}
+
+%\author{J\"{o}rg Cassens}
+
+% Till Tantau\author{{1} \and
+% J\"{o}rg Cassens\inst{2}
+
+%\institute[NTNU] % (optional, but mostly needed)
+%{Norwegian University of Science and Technology}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+
+\date[] % (optional, should be abbreviation of conference name)
+{}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{Beamer}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection,currentsubsection]
+%   \end{frame}
+% }
+% Use this if you do want the table of contents to pop up at
+% the beginning of each subsection.
+
+% \pgfdeclareimage[height=2em,interpolate=true]{ntnulogotext}{foo}
+% If you want to include a different logo on the title page
+% only (e.g. a combined logo of different institutions), you
+% can use this command.
+
+\begin{document}
+
+% \pgfdeclareimage[width=.6\textwidth]{ekstern}{./figures/nonregistered.jpg}
+% \pgfdeclareimage[width=.25\textwidth]{smiley}{./figures/Smiley.jpg}
+% \pgfdeclareimage[width=.25\textwidth]{Arnfinn}{./figures/Arnfinn.jpg}
+
+%\maketitle
+% \compressedtitle
+% You can use \maketitle to create the titlepage,
+% or \compressedtitle to create a more compact titlepage
+% with the look of the other pages in compress style
+
+ \begin{frame}
+  %\begin{centering}
+  %{\Big TTK4105 Nonlinear Control Systems}\\
+  %Lecture 1
+  %\end{centering}
+  \titlepage
+ \end{frame}
+% Or you can call the titlepage command in a frame environment
+
+\begin{frame}<beamer>[allowframebreaks]
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Today's goals}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Today's goals}
+\begin{frame}[t]
+	\frametitle{\color{white} Today's goals}
+	\begin{block}{After this course you should...}
+		\begin{itemize}
+		\item Know more about the backstepping technique and how it can be applied to nonlinear systems
+			\begin{itemize}
+			\item Or maybe you will just know how to make slides 
+			\item Or maybe \alert{not}?
+			\end{itemize}
+			
+		\item Goal 1: item 
+			\begin{itemize}
+			\item Goal 1.1: subitem
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]
+\frametitle{Literature}
+    \begin{block}{Today's lecture is based on}
+        \begin{tabular}{ll}
+        Khalil & \!\!{\bf Section 13.4 Backstepping} \\
+        & - Theory \\
+        & - Examples \\
+        \end{tabular}
+    \end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+	\frametitle{Theory}
+	FIGURE!
+	\begin{tikzpicture}[scale=1.5]
+	\coordinate (o) at (0,0);
+	\fill (0,0) circle (2pt);
+	%	\draw[rotate=-45, red] (0,0) circle (0.3 and 0.5);
+	%	\draw[rotate=0] (-45:0.3) -- (2,-2) node[right] {$\Omega_2=\{x \in B_r: W_2(x) \leq c\}$};
+	%	\draw[rotate=0, green] (0,0) circle (0.5 and 1);
+	%	\draw[rotate=0] (0.5,0) -- (2,-1) node[right] {$\Omega_{t,c} = \{x \in B_r: V(t,x) \leq c\}$};
+		\draw[rotate=-45, red] (0,0) circle (0.9 and 1.4   );
+		\draw (0:1.0) -- (2.5,0) node[right] {$\Omega_1=\{x \in B_r: W_1(x) \leq c\}$};
+	\draw[rotate=-45, blue] (0,0) circle (1.5 and 1.5);
+	\draw (25:1.5) -- (2,1) node[right] {$B_r$};
+	\draw[rounded corners=1cm,rotate=-45,scale=0.8] (-2,-2) rectangle (2,2);
+	\node at (1.2,1.6) {$\Dset$};
+	\end{tikzpicture}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Questions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Question 1}
+\begin{frame}[t]
+	\frametitle{Question 1}
+	
+	\begin{alertblock}{Question 1}
+		Questions?
+		\begin{equation*}
+			No?\ Great!
+		\end{equation*}
+	\end{alertblock}
+\end{frame}	
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Examples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+	\frametitle{Example 1: Integrator backstepping}
+	
+	\begin{exampleblock}{Example}
+		$\displaystyle V(x) =\frac{x_1^2}{(1 + x_1^2)} + x_2^2$
+		
+		
+	\end{exampleblock}
+\end{frame}
+
+
+
+	
+	
+\end{document} 
